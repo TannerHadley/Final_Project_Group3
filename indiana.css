@@ -1,17 +1,19 @@
-body {background-color:#DDD;
+body {
+		background-color:#DDD;
 		color:#000000;
-	font-family:Arial, sans-serif;
-	font-size: 90%;
+		font-family:Arial, sans-serif;
+		font-size: 90%;
 	}
 
-h1 {
-        background-color: #40826D;
-        color: #DDD;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
+
+	h1 {
+		background-color: #40826D;
+		color: #DDD;
+		border-radius: 15px;       
+		padding: 20px;             
+		margin: 20px auto;         
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	  }
 
 nav {font-size: 16px;
 	font-weight: bold;
