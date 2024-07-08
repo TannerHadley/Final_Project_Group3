@@ -1,5 +1,14 @@
 {
+  "name": "SDEV_255_Final_Project_Group3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/TannerHadley/SDEV_255_Final_Project_Group3.git",
+  "author": "CecilXVO <cvarga2@ivytech.edu>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "yarn": "^1.22.22"
+    "express": "^4.19.2"
   }
 }
