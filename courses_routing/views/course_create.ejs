@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Course Sign Up : Student Course Catalog</title>
+    </head>
+    <body>
+        <link rel="stylesheet" href="indiana.css">
+        <h1>Student Course Catalog</h1>
+        <nav>
+            <ul>
+                <li><b><a href="index_FinalProjectGroup3.html">Home</a></b>&nbsp;</li>
+                <li><b><a href="teacher_Admin.html">Teacher Administration</a></b>&nbsp;</li>
+                <li><b></b><a href="student_Details.html">Student Details</a></b>&nbsp;</li>
+                <li><b><a href="courses.html">Courses</a></b>&nbsp;</li>
+                <li><b><a href="teacher_SignIn.html">Teacher Sign-In</a></b>&nbsp;</li>
+                <li><b><a href="student_SignIn.html">Student Sign-In</a></b>&nbsp;</li>
+            </ul>
+        </nav>
+        <h2> View/Add/Remove student courses here</h2>
+        <div class="create-course content">
+            <form action="/courses" method="POST">
+                <label for="course_title">Course title:</label>
+                <input type="text" id="course_title" name="course_title" required>
+                <label for="course_number">Course number:</label>
+                <input type="text" id="course_number" name="course_number" required>
+                <label for="course_description">Course description:</label>
+                <textarea id="course_description" name="course_description" required></textarea>
+                <button>Submit</button>
+            </form>
+    
+        </div>
+    </body>
+</html>
