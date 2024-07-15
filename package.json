@@ -1,14 +1,22 @@
 {
-  "name": "SDEV_255_Final_Project_Group3",
+  "name": "crash-course",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/TannerHadley/SDEV_255_Final_Project_Group3.git",
-  "author": "CecilXVO <cvarga2@ivytech.edu>",
-  "license": "MIT",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.5.0",
+    "morgan": "^1.10.0"
   }
 }
