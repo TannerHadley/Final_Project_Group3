@@ -5,6 +5,7 @@ const Course = require('./models/course');
 
 //express app
 const app = express();
+const PORT = process.env.PORT || 3030;
 
 // connect to mongodb
 const dbURI = 'mongodb+srv://netninja:SDEV255@nodetutscluster.o0leayf.mongodb.net/nodetutscluster';
@@ -16,6 +17,9 @@ mongoose.connect(dbURI)
 
 //register view engine
 app.set('view engine', 'ejs');
+
+app.listen(PORT, () => {
+    console.log('server started on port ${PORT}');
 
 //middleware & static files
 app.use(express.static('public'));
