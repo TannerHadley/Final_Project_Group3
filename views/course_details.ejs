@@ -1,6 +1,3 @@
-<%- include('layout', { title: 'Course Details', body: courseDetailsBody(course) }) %>
-
-<% function courseDetailsBody(course) { %>
     <div class="details content">
         <h2>Course Details</h2>
         <div class="course-info">
@@ -24,4 +21,3 @@
             .catch(err => console.log(err));
         });
     </script>
-<% } %>

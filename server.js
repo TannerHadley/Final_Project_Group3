@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const ejs = require('ejs'); // Make sure to require ejs
 const Course = require('./models/course');
 
 // Middleware & static files
@@ -35,7 +36,13 @@ app.get('/', (req, res) => {
 app.get('/courses', (req, res) => {
     Course.find().sort({ createdAt: -1 })
         .then((result) => {
-            res.render('course_index', { title: 'All Courses', courses: result });
+            ejs.renderFile(path.join(__dirname, 'views', 'course_index.ejs'), { courses: result }, (err, str) => {
+                if (err) throw err;
+                res.render('layout', {
+                    title: 'All Courses',
+                    body: str
+                });
+            });
         })
         .catch((err) => {
             console.log(err);
@@ -59,7 +66,13 @@ app.get('/courses/:id', (req, res) => {
 
     Course.findById(id)
         .then(result => {
-            res.render('course_details', { course: result, title: 'Course Details' });
+            ejs.renderFile(path.join(__dirname, 'views', 'course_details.ejs'), { course: result }, (err, str) => {
+                if (err) throw err;
+                res.render('layout', {
+                    title: 'Course Details',
+                    body: str
+                });
+            });
         })
         .catch(err => {
             console.log(err);
@@ -79,7 +92,13 @@ app.delete('/courses/:id', (req, res) => {
 });
 
 app.get('/course_create', (req, res) => {
-    res.render('course_create', { title: 'Add a new course' });
+    ejs.renderFile(path.join(__dirname, 'views', 'course_create.ejs'), {}, (err, str) => {
+        if (err) throw err;
+        res.render('layout', {
+            title: 'Add a new course',
+            body: str
+        });
+    });
 });
 
 // 404 page

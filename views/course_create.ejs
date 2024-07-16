@@ -1,6 +1,3 @@
-<%- include('layout', { title: 'Course Sign Up : Student Course Catalog', body: courseCreateBody() }) %>
-
-<% function courseCreateBody() { %>
     <div class="create-course content">
         <h2>View/Add/Remove Student Courses Here</h2>
         <form action="/courses" method="POST">
@@ -20,4 +17,3 @@
         </form>
         <a href="/courses" class="back-btn">Back to Courses</a>
     </div>
-<% } %>
