@@ -29,7 +29,7 @@ mongoose.connect(dbURI)
 
 // Routes
 app.get('/', (req, res) => {
-    res.redirect('/courses');
+    res.redirect('index_FinalProjectGroup3.html');
 });
 
 app.get('/courses', (req, res) => {
