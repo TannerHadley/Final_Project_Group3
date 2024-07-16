@@ -1,7 +1,7 @@
 {
   "name": "SDEV_255_Final_Project_Group3",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/TannerHadley/SDEV_255_Final_Project_Group3.git",
   "author": "CecilXVO <cvarga2@ivytech.edu>",
   "license": "MIT",
