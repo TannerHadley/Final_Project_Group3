@@ -1,0 +1,19 @@
+<%- include('layout', { title: 'All Courses', body: courseIndexBody(courses) }) %>
+
+<% function courseIndexBody(courses) { %>
+    <div class="courses content">
+        <h2>All Courses</h2>
+        <a href="/course_create" class="add-course-btn">Add New Course</a>
+        <% if (courses.length > 0) { %>
+            <% courses.forEach(course => { %>
+                <a class="single" href="/courses/<%= course._id %>">
+                    <h3 class="title"><%= course.course_title %></h3>
+                    <h3 class="title"><%= course.course_number %></h3>
+                    <p class="description"><%= course.course_description %></p>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <p>There are no courses to display</p>
+        <% } %>
+    </div>
+<% } %>

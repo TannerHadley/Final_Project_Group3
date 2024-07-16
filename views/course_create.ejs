@@ -1,0 +1,16 @@
+<%- include('layout', { title: 'Course Sign Up : Student Course Catalog', body: courseCreateBody() }) %>
+
+<% function courseCreateBody() { %>
+    <h2>View/Add/Remove student courses here</h2>
+    <div class="create-course content">
+        <form action="/courses" method="POST">
+            <label for="course_title">Course title:</label>
+            <input type="text" id="course_title" name="course_title" required>
+            <label for="course_number">Course number:</label>
+            <input type="text" id="course_number" name="course_number" required>
+            <label for="course_description">Course description:</label>
+            <textarea id="course_description" name="course_description" required></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+<% } %>

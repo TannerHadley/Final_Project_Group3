@@ -1,0 +1,27 @@
+<%- include('layout', { title: 'Course Details', body: courseDetailsBody(course) }) %>
+
+<% function courseDetailsBody(course) { %>
+    <div class="details content">
+        <h2>Course Details</h2>
+        <div class="course-info">
+            <h3 class="title"><%= course.course_title %></h3>
+            <h4 class="number">Course Number: <%= course.course_number %></h4>
+            <p class="description"><%= course.course_description %></p>
+        </div>
+        <a href="/courses" class="back-btn">Back to Courses</a>
+        <a class="delete-btn delete" data-doc="<%= course._id %>">Delete Course</a>
+    </div>
+    <script>
+        const trashcan = document.querySelector('a.delete');
+        trashcan.addEventListener('click', (e) => {
+            const endpoint = "/courses/" + trashcan.dataset.doc;
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then((response) => response.json())
+            .then((data) => window.location.href = data.redirect)
+            .catch(err => console.log(err));
+        });
+    </script>
+<% } %>

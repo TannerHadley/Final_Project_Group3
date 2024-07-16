@@ -1,0 +1,125 @@
+body {
+  background-color: #DDD;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  font-size: 90%;
+}
+
+h1 {
+  background-color: #40826D;
+  color: #DDD;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Styling for the courses section and the add course button */
+.courses.content {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.add-course-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.add-course-btn:hover {
+  background-color: #45a049;
+}
+
+.single {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  text-decoration: none;
+  color: #333;
+}
+
+.single:hover {
+  background-color: #f1f1f1;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.description {
+  margin: 0;
+  color: #666;
+}
+
+/* Additional styling for main content to ensure it displays correctly */
+main {
+  margin-top: 20px;
+}
+
+/* Styling for course details page */
+.details.content {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.course-info {
+  margin-bottom: 20px;
+}
+
+.course-info .title {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.course-info .number {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.course-info .description {
+  color: #666;
+}
+
+.back-btn, .delete-btn {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background-color: #f44336;
+}
+
+.back-btn:hover {
+  background-color: #45a049;
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+}
