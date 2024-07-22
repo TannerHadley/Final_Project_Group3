@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const ejs = require('ejs'); // Make sure to require ejs
 const Course = require('./models/course');
-const courseRoutes = require('.routes/courseRoutes');
+const courseRoutes = require('./routes/courseRoutes');
 
 const app = express();
 
