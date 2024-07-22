@@ -7,6 +7,9 @@ const mongoose = require('mongoose');
 const ejs = require('ejs'); // Make sure to require ejs
 const Course = require('./models/course');
 const courseRoutes = require('./routes/courseRoutes');
+const authRoutes = require('./routes/authRoutes');
+const cookieParser = require('cookie-parser');
+const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
 const app = express();
 
@@ -15,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cookieParser());
 
 // Register view engine
 app.set('view engine', 'ejs');
@@ -38,6 +42,12 @@ app.get('/', (req, res) => {
 });
 
 app.use('/courses', courseRoutes);
+
+//routes for smoothie JWT Node Auth Tutorial
+app.get('*', checkUser);
+app.get('/homeJWT', (req, res) => res.render('homeJWT'));
+app.get('/smoothies', requireAuth, (req, res) => res.render('smoothies'));
+app.use(authRoutes);
 
 // 404 page
 app.use((req, res) => {
