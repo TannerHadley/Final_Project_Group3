@@ -6,7 +6,7 @@
   "author": "CecilXVO <cvarga2@ivytech.edu>",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "ejs": "^3.1.10",

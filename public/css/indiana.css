@@ -55,7 +55,7 @@ nav {
 }
 
 .single:hover {
-  background-color: #f1f1f1;
+  background-color: #f9f9f9;
 }
 
 .title {
@@ -79,7 +79,7 @@ main {
   margin: 20px auto;
   max-width: 800px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #f9f9f9;
 }
@@ -102,7 +102,7 @@ main {
   color: #666;
 }
 
-.back-btn, .delete-btn {
+.btn {
   display: inline-block;
   margin-right: 10px;
   padding: 10px 20px;
@@ -110,31 +110,34 @@ main {
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
 }
 
-.delete-btn {
-  background-color: #f44336;
-}
-
-.back-btn:hover {
+.btn:hover {
   background-color: #45a049;
 }
 
-.delete-btn:hover {
+.delete {
+  background-color: #f44336;
+}
+
+.delete:hover {
   background-color: #e53935;
 }
 
-/* Styling for course create page */
-.create-course.content {
+/* Styling for course create and edit page */
+.create-course.content, .edit-course-form {
   margin: 20px auto;
   max-width: 800px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #f9f9f9;
 }
 
-.create-course h2 {
+.create-course h2, .edit-course-form h2 {
   margin-bottom: 20px;
   font-size: 1.5em;
   color: #333;
@@ -155,26 +158,11 @@ main {
 .form-group textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 5px;
 }
 
 .form-group textarea {
   resize: vertical;
   height: 100px;
-}
-
-.submit-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.submit-btn:hover {
-  background-color: #45a049;
 }
