@@ -56,6 +56,30 @@ app.get('/', (req, res) => {
     });
 });
 
+// student route
+app.get('/teacher_details', (req, res) => {
+    ejs.renderFile(path.join(__dirname, 'views', 'teacher_details.ejs'), {}, (err, str) => {
+        if (err) throw err;
+        res.render('layout', {
+            title: 'Teacher Details',
+            body: str
+        });
+    });
+});
+
+
+// teacher route
+app.get('/student_details', (req, res) => {
+    ejs.renderFile(path.join(__dirname, 'views', 'student_details.ejs'), {}, (err, str) => {
+        if (err) throw err;
+        res.render('layout', {
+            title: 'Student Details',
+            body: str
+        });
+    });
+});
+
+
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
