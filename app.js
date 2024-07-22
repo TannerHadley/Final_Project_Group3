@@ -4,9 +4,11 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
 const ejs = require('ejs');
 
-const courseRoutes = require('./routes/courseRoutes')
+require('./config/passport')(passport);
 
 // Middleware & static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -14,29 +16,62 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(express.json());
 
+// Session middleware
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true
+}));
+
+// Initialize Passport and restore authentication state, if any, from the session
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+
 // Register view engine
 app.set('view engine', 'ejs');
 
 // Connect to MongoDB
-console.log("establishing connection");
-const dbURI = 'mongodb+srv://netninja:SDEV255@nodetutscluster.o0leayf.mongodb.net/nodetutscluster';
-
-mongoose.connect(dbURI)
+mongoose.connect('mongodb+srv://groupuser:1@sdev255group3.zkt4cuj.mongodb.net/?retryWrites=true&w=majority&appName=SDEV255Group3')
     .then((result) => {
-        console.log("established connection");
+        console.log('established connection');
         app.listen(PORT, () => {
             console.log(`Server started on port ${PORT}`);
         });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error('Failed to connect to MongoDB:', err));
 
+// Home page route
 app.get('/', (req, res) => {
-    res.redirect('index_FinalProjectGroup3.html');
+    ejs.renderFile(path.join(__dirname, 'views', 'index.ejs'), {}, (err, str) => {
+        if (err) throw err;
+        res.render('layout', {
+            title: 'Home',
+            body: str
+        });
+    });
 });
 
+
+// Routes
+const authRoutes = require('./routes/authRoutes');
+const courseRoutes = require('./routes/courseRoutes');
+
+app.use(authRoutes);
 app.use(courseRoutes);
 
-// 404 page
-app.use((req, res) => {
-    res.status(404).render('404', { title: '404' });
+
+// 404
+app.get('/404', (req, res) => {
+    ejs.renderFile(path.join(__dirname, 'views', '404.ejs'), {}, (err, str) => {
+        if (err) throw err;
+        res.render('404', {
+            title: '404',
+            body: str
+        });
+    });
 });

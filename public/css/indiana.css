@@ -19,6 +19,25 @@ nav {
   font-weight: bold;
 }
 
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000000;
+}
+
+nav ul li a:hover {
+  color: #40826D;
+}
+
 /* Styling for the courses section and the add course button */
 .courses.content {
   margin: 20px auto;
