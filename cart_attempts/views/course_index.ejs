@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Course Sign Up : Student Course Catalog</title>
+    </head>
+    <body>
+        <link rel="stylesheet" href="indiana.css">
+        <h1>Student Course Catalog</h1>
+        <nav>
+            <ul>
+                <li><b><a href="index_FinalProjectGroup3.html">Home</a></b>&nbsp;</li>
+                <li><b><a href="teacher_Admin.html">Teacher Administration</a></b>&nbsp;</li>
+                <li><b></b><a href="student_Details.html">Student Details</a></b>&nbsp;</li>
+                <li><b><a href="courses.html">Courses</a></b>&nbsp;</li>
+                <li><b><a href="teacher_SignIn.html">Teacher Sign-In</a></b>&nbsp;</li>
+                <li><b><a href="student_SignIn.html">Student Sign-In</a></b>&nbsp;</li>
+            </ul>
+        </nav>
+        
+        <div class="courses content">
+            <h2>All Courses</h2>
+    
+            <% if (courses.length > 0) { %>
+                <% courses.forEach(course => { %>
+                     <a class="single" href="/courses/<%=course._id%>">
+                        <h3 class="title"><%= course.course_title %></h3>
+                        <h3 class="title"><%= course.course_number %></h3>
+                        <p class="description"><%= course.course_description %></p>
+                     </a>
+
+                     <!-- cart button-->
+                     <%- include('./partials/cartButton.ejs', {course: course}) %>
+                     
+                <% }) %>
+            <% } else { %>
+                <p>There are no courses to display</p>
+            <% } %>
+        </div>
+    </body>
+</html>

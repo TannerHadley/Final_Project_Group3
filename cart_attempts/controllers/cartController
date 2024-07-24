@@ -1,0 +1,67 @@
+/*
+const userCourse = require('../models/user_courses');
+
+const user_courses_index = (req, res) => {
+  userCourse.find().sort({ createdAt: -1 })
+    .then(result => {
+      res.render('./cart', { title: 'Cart', user_courses: result });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+const user_courses_post = (req, res) => {
+  const user_course = new userCourse(req.body);
+  user_course.save()
+    .then(result => {
+      res.redirect('/cart');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+const user_courses_delete = (req, res) => {
+  const id = req.params.id;
+  userCourse.findByIdAndDelete(id)
+    .then(result => {
+      res.json({ redirect: './cart' });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+module.exports = {
+  user_courses_index,
+  user_courses_post,
+  user_courses_delete
+};
+*/
+
+const Course = require("../models/course");
+
+exports.postCartPage = (req, res) => {
+    console.log(req.body);
+    const courseId = req.body.course._id;
+    console.log(courseId);
+}
+
+exports.addToCart = (req, res, next) => {
+    Course.findById(req.body.id)
+        .then(course => {
+            // Cart.save(addedCourse);
+            req.user.addToCart(course)
+                .then(result => {
+                    res.redirect('/cart');
+                })
+            
+        })
+        .catch(err => console.log(err));
+}
+
+exports.getCartPage = (req, res) => {
+
+}
+
