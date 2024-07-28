@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CCart</title>
+    <link rel="stylesheet" href="/css/indiana.css">
+</head>
+<body>
+  <%- include("../partials/navbar.ejs") %>
+
+  <div class="cart content">
+    <h2>Course Registration</h2>
+
+    <% if (carts.length > 0) { %>
+      <% carts.forEach(cart => { %>
+        <a class="single" href="/carts/<%= cart._id %>"><br>
+        <h3 class="course_title" ><%= cart.course_title %></h3>
+        <br>
+
+
+    <a class="btn delete" data-doc="<%= cart._id %>">Delete Course</a>
+
+
+        <br>
+      </form>
+      </a>
+      <% }) %>
+    <% } else { %>
+
+
+
+      <p>You do not have any classes you have signed up for</p>
+
+    <% } %>
+
+ <script>
+     const trashcan = document.querySelector('a.delete');
+    if (trashcan) {
+        trashcan.addEventListener('click', (e) => {
+            const endpoint = "/carts/" + trashcan.dataset.doc;
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then((response) => response.json())
+            .then((data) => window.location.href = data.redirect)
+            .catch(err => console.log(err));
+        });
+    }
+
+     </script>
+
+
+  </div>
