@@ -5,8 +5,12 @@ const PORT = process.env.PORT || 3030;
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const bodyParser = require("body-parser");
 const passport = require('passport');
 const ejs = require('ejs');
+const cart = require('./routes/cartroute');
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./config/passport')(passport);
 
@@ -87,7 +91,7 @@ const courseRoutes = require('./routes/courseRoutes');
 
 app.use(authRoutes);
 app.use(courseRoutes);
-
+app.use('/carts', cart);
 
 // 404
 app.get('/404', (req, res) => {
