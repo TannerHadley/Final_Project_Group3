@@ -1,5 +1,8 @@
 <div class="details content">
     <h2>Course Details</h2>
+	
+
+		
     <div class="course-info">
         <h3 class="title"><%= course.course_title %></h3>
         <h4 class="number">Course Number: <%= course.course_number %></h4>
@@ -25,6 +28,18 @@
         <a class="btn delete" data-doc="<%= course._id %>">Delete Course</a>
     <% } %>
     <a href="/courses" class="btn">Back to Courses</a>
+		<% if (user && user.role === 'student') { %>
+				
+		<form method="POST" action="../carts/cart">
+		<input type="hidden" name="course_title" value="<%= course.course_title %>">
+			<input type="hidden" name="course_number" value=""<%= course.course_number %>">
+			<input type="hidden" name="course_description" value=""<%= course.course_description %>">
+			<button type="submit" class="btn">Add this Class to Course Schedule</button>
+				
+				
+	</form>
+	<% } %>
+		
 </div>
 <script>
     const trashcan = document.querySelector('a.delete');

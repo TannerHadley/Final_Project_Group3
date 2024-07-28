@@ -1,9 +1,14 @@
 <nav>
     <ul>
         <li><b><a href="/">Home</a></b>&nbsp;</li>
-        <li><b><a href="/teacher_details">Teacher Details</a></b>&nbsp;</li>
-        <li><b><a href="/student_details">Student Details</a></b>&nbsp;</li>
         <li><b><a href="/courses">Courses</a></b>&nbsp;</li>
+		<% if (user && user.role === 'student') { %>
+			<li>
+				<b>
+					<a href="/carts/cart">Course Schedule</a>
+				</b>&nbsp;
+			</li>
+		<% } %>
         <% if (user) { %>
             <li><b><a href="/logout">Logout</a></b>&nbsp;</li>
         <% } else { %>
